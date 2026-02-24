@@ -10,7 +10,7 @@ body {
 }
 
 header {
-  margin: 20px 0 20px 0;
+  margin: 20px 0;
   font-size: 1.8rem;
   font-weight: 600;
 }
@@ -30,17 +30,21 @@ header {
   flex-direction: row;
   gap: 20px;
   align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
 }
 
 .board {
   display: grid;
-  grid-template-columns: repeat(8, 80px);
-  grid-template-rows: repeat(8, 80px);
+  grid-template-columns: repeat(8, 1fr);
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 640px;
 }
 
 .board button {
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: 100%;
   padding: 0;
   border: none;
   box-sizing: border-box;
@@ -76,7 +80,6 @@ header {
   width: 200px;
   display: flex;
   flex-direction: column;
-  height: 640px;
 }
 
 .subtitle {
