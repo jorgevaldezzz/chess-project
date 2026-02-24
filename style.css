@@ -37,9 +37,11 @@ header {
 .board {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
   aspect-ratio: 1 / 1;
   width: 100%;
   max-width: 640px;
+  height: auto;
 }
 
 .board button {
@@ -51,7 +53,9 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 0;
 }
+
 
 .white-tile {
   background-color: #f0d9b5;
@@ -96,3 +100,4 @@ header {
   padding: 10px;
   overflow-y: auto;
 }
+
