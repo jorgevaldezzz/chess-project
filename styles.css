@@ -1,67 +1,39 @@
 .board {
-    display: grid;
-    place-items: center;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    background-color: #ddcfcf;
-    width: 400px;
-    height: 400px;
-    margin: 20px auto;
-    font-size: 0;
-}
-
-.white-tile,
-.black-tile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    border: 0 solid transparent;
-    transition: border 0.15s, opacity 0.15s;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: 400px;
+  height: 400px;
+  margin: 20px auto;
 }
 
 .white-tile {
-    background-color: rgba(231, 216, 216, 0.6);
+  background-color: rgba(231,216,216,0.6);
 }
 
 .black-tile {
-    background-color: rgb(83, 76, 76);
-}
-
-.white-tile:not(.selected-square):hover,
-.black-tile:not(.selected-square):hover {
-    cursor: pointer;
-    border: 2px solid rgb(56, 203, 240);
-    opacity: 0.7;
-}
-
-.white-tile:not(.selected-square):active,
-.black-tile:not(.selected-square):active {
-    border: 2px solid rgb(56, 203, 240);
-    opacity: 0.4;
-}
-
-.white-tile.selected-square,
-.black-tile.selected-square {
-    border: 3px solid yellow;
-    opacity: 1;
-}
-
-.white-tile.selected-square:hover,
-.black-tile.selected-square:hover {
-    opacity: 0.8;
-    border: 3px solid yellow;
-}
-
-.board button img {
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
-    pointer-events: none;
+  background-color: rgb(83,76,76);
 }
 
 .board button {
-    padding: 0;
-    box-sizing: border-box;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board button img {
+  width: 90%;
+  height: 90%;
+  pointer-events: none;
+}
+
+.white-tile:hover,
+.black-tile:hover {
+  border: 2px solid rgb(56,203,240);
+}
+
+.selected-square {
+  border: 3px solid yellow !important;
 }
