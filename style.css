@@ -40,10 +40,19 @@ footer {
 
 .board {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  width: 400px;
-  height: 400px;
+  grid-template-columns: repeat(8, 70px);
+  grid-template-rows: repeat(8, 70px);
+}
+
+.board button {
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .white-tile {
@@ -52,14 +61,6 @@ footer {
 
 .black-tile {
   background-color: #b58863;
-}
-
-.board button {
-  border: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .board button img {
