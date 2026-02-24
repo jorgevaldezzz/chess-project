@@ -34,14 +34,24 @@ header {
   max-width: 900px;
 }
 
+.board-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.board-wrapper {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 1 / 1;
+}
+
 .board {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  aspect-ratio: 1 / 1;
+  grid-auto-rows: 1fr;
   width: 100%;
-  max-width: 640px;
-  height: auto;
+  height: 100%;
 }
 
 .board button {
@@ -53,9 +63,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 0;
 }
-
 
 .white-tile {
   background-color: #f0d9b5;
@@ -80,6 +88,7 @@ header {
   outline: 3px solid #222;
 }
 
+
 .sidebar {
   width: 200px;
   display: flex;
@@ -100,4 +109,5 @@ header {
   padding: 10px;
   overflow-y: auto;
 }
+
 
