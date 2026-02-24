@@ -16,13 +16,13 @@ header {
 }
 
 .container {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
 .board-container {
@@ -31,17 +31,10 @@ header {
   gap: 20px;
   align-items: flex-start;
   width: 100%;
-  max-width: 900px;
-}
-
-.board-container {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
 }
 
 .board-wrapper {
-  width: 100%;
+  width: 80vw;
   max-width: 640px;
   aspect-ratio: 1 / 1;
 }
@@ -49,7 +42,7 @@ header {
 .board {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  grid-auto-rows: 1fr;
+  grid-template-rows: repeat(8, 1fr);
   width: 100%;
   height: 100%;
 }
@@ -57,9 +50,8 @@ header {
 .board button {
   width: 100%;
   height: 100%;
-  padding: 0;
   border: none;
-  box-sizing: border-box;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,7 +80,6 @@ header {
   outline: 3px solid #222;
 }
 
-
 .sidebar {
   width: 200px;
   display: flex;
@@ -102,12 +93,10 @@ header {
 }
 
 .move-history {
-  background-color: #f9f9f9;
   flex-grow: 1;
+  background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 10px;
   overflow-y: auto;
 }
-
-
