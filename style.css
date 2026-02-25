@@ -1,57 +1,49 @@
-.board {
-    display: grid;
-    place-items: center;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    background-color: #ddcfcf;
-    width: 400px;
-    height: 400px;
-    margin: 20px auto;
-    font-size: 0;
-}
 
-.white-tile,
-.black-tile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    border: 0 solid transparent;
-    transition: border 0.15s, opacity 0.15s;
-}
+.board {
+            place-self: center;
+            display: grid;
+            place-items: center;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            background-color: #ddcfcf;
+            font-size: 0px;
+            width: 400px
+        }
 
 .white-tile {
-    background-color: rgba(231, 216, 216, 0.6);
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(231, 216, 216, 0.596);
+    transition: opacity .15s, border .15s;
+    border: 0 solid transparent;
 }
 
 .black-tile {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
     background-color: rgb(83, 76, 76);
+    transition: opacity .15s, border .15s;
+    border: 0 solid transparent;
 }
 
 .white-tile:not(.selected-square):hover,
 .black-tile:not(.selected-square):hover {
     cursor: pointer;
     border: 2px solid rgb(56, 203, 240);
-    opacity: 0.7;
+    opacity: 90%;
 }
 
 .white-tile:not(.selected-square):active,
 .black-tile:not(.selected-square):active {
+    cursor: pointer;
     border: 2px solid rgb(56, 203, 240);
-    opacity: 0.4;
-}
-
-.white-tile.selected-square,
-.black-tile.selected-square {
-    border: 3px solid yellow;
-    opacity: 1;
-}
-
-.white-tile.selected-square:hover,
-.black-tile.selected-square:hover {
-    opacity: 0.8;
-    border: 3px solid yellow;
+    opacity: 50%;
 }
 
 .board button img {
@@ -66,11 +58,14 @@
     box-sizing: border-box;
 }
 
-.container {
-  background: #222;
-  padding: 30px 40px 40px 40px;
-  border-radius: 16px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.white-tile.selected-square,
+.black-tile.selected-square {
+    border: 3px solid rgb(0, 0, 0) !important;
+    opacity: 100%;
+}
+
+.white-tile.selected-square:hover,
+.black-tile.selected-square:hover {
+    opacity: 90%;
+    border: 3px solid rgb(0, 0, 0) !important;
+}
