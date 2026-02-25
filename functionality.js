@@ -37,66 +37,55 @@ const boardState = {
     "H8": { type: "rook", color: "black", img: "pieces-icon/br.png" }
 };
 
-let moveCounter = 1
-let highlightedSquares = null
+let moveCounter = 1;
+let highlightedSquares = new Set();
+let selectedSquare = null;
 
 function handleSquareClick(coord) {
     const currColor = (moveCounter % 2 === 0) ? "black" : "white";
-    piece = boardState[coord]
+    const piece = boardState[coord];
+
     if (selectedSquare === null) {
-        if (piece.color === currColor) {
-            selectedSquare = coord
-            handleHighlightSquares()
-            renderBoard()
+        if (piece && piece.color === currColor) {
+            selectedSquare = coord;
+            highlightedSquares = new Set();
+            handleHighlightSquares(coord);
+            renderBoard();
         }
     } else {
         if (coord === selectedSquare) {
-            selectedSquare = null
-            highlightedSquares = null
-            renderBoard()
+            selectedSquare = null;
+            highlightedSquares = new Set();
+            renderBoard();
         } else if (piece && piece.color === boardState[selectedSquare].color) {
-            selectedSquare = coord
-            renderBoard()
-        } else if (!piece) {
-            //move
-            boardState[coord] = boardState[selectedSquare]
-            delete boardState[selectedSquare]
-            selectedSquare = null
-            moveCounter++
-            renderBoard()
-        } else if (piece.color !== currColor) {
-            //capture
-            boardState[coord] = boardState[selectedSquare]
-            delete boardState[selectedSquare]
-            selectedSquare = null
-            moveCounter++
-            renderBoard()
+            selectedSquare = coord;
+            highlightedSquares = new Set();
+            handleHighlightSquares(coord);
+            renderBoard();
+        } else {
+            boardState[coord] = boardState[selectedSquare];
+            delete boardState[selectedSquare];
+            selectedSquare = null;
+            highlightedSquares = new Set();
+            moveCounter++;
+            renderBoard();
         }
     }
 }
 
 function handleHighlightSquares(coord) {
-    piece = boardState[coord]
-    file = coord.substring(0, 1)
-    rank = Number(coord.substring(1))
+    const piece = boardState[coord];
+    const file = coord.substring(0, 1);
+    const rank = Number(coord.substring(1));
+
     if (piece.type === "pawn") {
         if (piece.color === "white") {
-            highlightedSquares.add(toString(file + (rank + 1)))
+            highlightedSquares.add(file + (rank + 1));
         } else {
-            highlightedSquares.add(toString(file + (rank - 1)))
+            highlightedSquares.add(file + (rank - 1));
         }
-
-        
-    } else if (piece.type === "rook") {
-
     }
-
-
-
 }
-
-
-let selectedSquare = null;
 
 function renderBoard() {
     board.innerHTML = '';
@@ -118,7 +107,7 @@ function renderBoard() {
             }
 
             button.addEventListener('click', () => {
-                handleSquareClick(coord, button)
+                handleSquareClick(coord);
             });
 
             board.appendChild(button);
