@@ -1,14 +1,20 @@
-
 .board {
-            place-self: center;
-            display: grid;
-            place-items: center;
-            grid-template-columns: repeat(8, 1fr);
-            grid-template-rows: repeat(8, 1fr);
-            background-color: #ddcfcf;
-            font-size: 0px;
-            width: 400px
-        }
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    background-color: #ddcfcf;
+    font-size: 0px;
+    width: 400px
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 2rem 0;
+}
 
 .white-tile {
     width: 50px;
